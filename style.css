@@ -126,7 +126,7 @@ input[type="radio"]:checked ~ .accordion-label .title-icon{
         opacity: 0;
     }
 
-    .accordion-label:hover .title-icon{
+    .accordion-item:hover .title-icon{
         transform: rotate(90deg);
     }
 

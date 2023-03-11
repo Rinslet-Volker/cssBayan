@@ -3,7 +3,9 @@
 }
 
 :root {
-   
+   --green: rgb(24, 131, 54);
+   --light-grey: rgb(155, 148, 148);
+   --black: #000;
 }
 
 html {
@@ -17,6 +19,10 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
+input[type="radio"] {
+    display: none;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -24,4 +30,72 @@ body {
     align-items: center;
     max-width: 70%;
     margin: 0 auto;
+}
+
+.accordion-item {
+    margin-bottom: 1%;
+}
+
+.accordion-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+    border: 4px double var(--green);
+    border-radius: 10px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--light-grey);
+    text-transform: uppercase;
+}
+
+input[type="radio"]:checked + .accordion-label {
+    color: var(--black);
+}
+
+.accordion-label .title-icon {
+    max-width: 1em;
+}
+
+.accordion-item__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: height 0.5s ease-in-out, visibility 0s linear 0.5s, opacity 0.5s linear;
+}
+
+.accordion-item__content img {
+    width: 70%;
+}
+
+.accordion-item__content:active img {
+    border: 3px solid var(--green);
+}
+
+input[type="radio"]:checked ~ .accordion-item__content,
+.accordion-item:hover .accordion-label + .accordion-item__content,
+.accordion-item:hover .accordion-label + .accordion-item__content img {
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.title-icon {
+    opacity: 0;
+}
+
+.accordion:hover .accordion-label{
+    color: var(--black);
+}
+
+.accordion:hover .accordion-label .title-icon{
+    opacity: 1;
+    transition: all 0.5s linear;
+}
+
+input[type="radio"]:checked ~ .accordion-label .title-icon,
+.accordion-label:hover .title-icon{
+    transform: rotate(90deg);
 }

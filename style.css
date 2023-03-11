@@ -32,8 +32,16 @@ input[type="radio"] {
     margin: 0 auto;
 }
 
+.accordion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .accordion-item {
+    width: 70%;
     margin-bottom: 1%;
+    cursor: pointer;
 }
 
 .accordion-label {
@@ -46,6 +54,7 @@ input[type="radio"] {
     font-weight: bold;
     color: var(--light-grey);
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 input[type="radio"]:checked + .accordion-label {
@@ -68,10 +77,15 @@ input[type="radio"]:checked + .accordion-label {
 
 .accordion-item__content img {
     width: 70%;
+    margin:1em auto;
+}
+
+.accordion-item__content:active {
+    cursor: crosshair;
 }
 
 .accordion-item__content:active img {
-    border: 3px solid var(--green);
+    filter: invert(80%);
 }
 
 input[type="radio"]:checked ~ .accordion-item__content,
